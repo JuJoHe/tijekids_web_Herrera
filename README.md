@@ -11,3 +11,9 @@ Aplicación web desarrollada en Django para gestionar turnos de la peluquería i
 - Templates con Bootstrap 5
 
 Proyecto final integrador para el curso de Django.
+
+# TijeKids Web - Proyecto Final Django (Juan José Herrera)
+
+Web de turnos + reseñas para TijeKids.
+
+
