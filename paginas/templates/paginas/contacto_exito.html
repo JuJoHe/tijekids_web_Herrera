@@ -1,0 +1,9 @@
+{% extends "paginas/base.html" %}
+{% block title %}¡Gracias! — TijeKids{% endblock %}
+
+{% block content %}
+  <h1>Mensaje enviado</h1>
+  <p>Gracias, {{ data.nombre }}{% if data.email %} ({{ data.email }}){% endif %}. Te responderemos a la brevedad.</p>
+
+  <a class="btn btn-outline-primary mt-3" href="{% url 'home' %}">Volver al inicio</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "turnos/base.html" %}
+
+{% block content %}
+<h2>Detalle del Turno</h2>
+
+<p><strong>Fecha:</strong> {{ turno.fecha_hora }}</p>
+<p><strong>Cliente:</strong> {{ turno.cliente }}</p>
+<p><strong>Servicio:</strong> {{ turno.servicio }}</p>
+
+<hr>
+
+<h4>Reseñas del Turno</h4>
+<ul class="list-group">
+    {% for r in reseñas %}
+        <li class="list-group-item">
+            <strong>{{ r.autor }}</strong>: {{ r.texto }}<br>
+            <small class="text-muted">{{ r.fecha }}</small>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No hay reseñas todavía</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<a href="{% url 'crear_resena' turno.id %}" class="btn btn-warning mt-3">Agregar Reseña</a>
+
+{% endblock %}

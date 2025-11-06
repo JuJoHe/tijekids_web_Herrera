@@ -1,0 +1,11 @@
+{% extends "turnos/base.html" %}
+
+{% block content %}
+<h2>TijeKids Turnos</h2>
+<p>Bienvenido al sistema de turnos!</p>
+
+<a class="btn btn-success" href="{% url 'crear_turno' %}">Crear Turno</a>
+<a class="btn btn-info" href="{% url 'ver_turnos' %}">Ver Turnos</a>
+<a class="btn btn-warning" href="{% url 'ver_resenas' %}">Ver Reseñas</a>
+
+{% endblock %}

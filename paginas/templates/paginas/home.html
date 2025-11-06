@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Inicio — TijeKids{% endblock %}
+
+{% block content %}
+  <div class="text-center">
+    <h1 class="mb-3">TijeKids</h1>
+    <p class="lead mb-4">Bienvenid@ — elegí qué querés hacer:</p>
+
+    <div class="d-flex gap-2 justify-content-center flex-wrap">
+      <a class="btn btn-tjk" href="{% url 'crear_turno' %}">Pedir Turno</a>
+      <a class="btn btn-outline-primary" href="{% url 'ver_turnos' %}">Ver Turnos</a>
+      <a class="btn btn-outline-secondary" href="{% url 'ver_resenas' %}">Ver Reseñas</a>
+      <a class="btn btn-outline-dark" href="{% url 'about' %}">Acerca de</a>
+      <a class="btn btn-outline-dark" href="{% url 'contacto' %}">Contacto</a>
+    </div>
+  </div>
+{% endblock %}

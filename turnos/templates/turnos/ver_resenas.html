@@ -1,0 +1,23 @@
+{% extends "turnos/base.html" %}
+
+{% block content %}
+<h2>Reseñas recibidas</h2>
+
+<ul class="list-group col-6">
+    {% for r in resenas %}
+        <li class="list-group-item">
+            <strong>{{ r.autor }}</strong> dijo:
+            <br>
+            {{ r.texto }}<br>
+            <span class="text-muted" style="font-size:12px;">
+                Turno: {{ r.turno }} - {{ r.fecha }}
+            </span>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No hay reseñas todavía</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'home' %}" class="btn btn-outline-secondary mt-3">Volver</a>
+
+{% endblock %}

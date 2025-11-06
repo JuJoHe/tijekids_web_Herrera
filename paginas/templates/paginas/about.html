@@ -1,0 +1,33 @@
+{% extends "paginas/base.html" %}
+{% block title %}Acerca de TijeKids{% endblock %}
+
+{% block content %}
+<h1>Sobre TijeKids</h1>
+
+<p>En TijeKids creemos que cada corte es más que un corte…</p>
+
+<p>
+Es un momento especial, donde los chicos pueden sentirse seguros, cuidados, felices y 
+protagonistas de su propio estilo. Nuestra misión es que cada visita sea una experiencia 
+linda, tranquila, sin miedos ni tensión. Queremos que tu hijo se vaya sintiéndose mejor 
+de como llegó.
+</p>
+
+<p>
+Cortamos con amor, paciencia y diversión. Nos adaptamos a bebés, nenes y nenas en todas las 
+etapas. Sabemos que algunos son tímidos, otros inquietos, algunos necesitan tiempo… y está 
+perfecto. Acá los respetamos, escuchamos y acompañamos.
+</p>
+
+<p>
+TijeKids nació en Puerto Madryn para darle a las familias un lugar pensado para ellos, 
+donde cortar el pelo NO sea una batalla… sino un lindo recuerdo.
+</p>
+
+<hr>
+
+<h4>¿Querés sacar turno?</h4>
+<a class="btn btn-primary" href="{% url 'crear_turno' %}">Pedir Turno</a>
+<a class="btn btn-info" href="{% url 'contacto' %}">Contacto directo</a>
+
+{% endblock %}
