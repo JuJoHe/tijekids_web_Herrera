@@ -1,33 +1,31 @@
-{% extends "base.html" %}
-{% block title %}Turnos — TijeKids{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <div class="text-center mb-4">
-    <h2 class="fw-bold">📋 Listado de Turnos</h2>
-  </div>
+<h2>Listado de Turnos</h2>
 
-  <div class="list-group mx-auto" style="max-width: 700px;">
+<ul class="list-group col-8">
     {% for turno in turnos %}
-      <div class="list-group-item d-flex justify-content-between align-items-center">
-        <div>
-          <strong>{{ turno.fecha_hora|date:"d M Y, H:i" }}</strong><br>
-          <span>{{ turno.cliente }} — {{ turno.servicio }}</span>
-        </div>
+        <li class="list-group-item">
 
-        <div class="text-end">
-          <a href="{% url 'crear_resena' turno.id %}" class="btn btn-tjk btn-sm me-2">Agregar Reseña</a>
-          <a href="{% url 'detalle_turno' turno.id %}" class="btn btn-outline-secondary btn-sm">Ver Detalle</a>
-          <span class="badge badge-tjk ms-2">{{ turno.reseñas.count }} reseñas</span>
-        </div>
-      </div>
+            {{ turno.fecha_hora }} - {{ turno.cliente }} - {{ turno.servicio }}
+
+            <div class="mt-2">
+                <a class="btn btn-warning btn-sm" href="{% url 'crear_resena' turno.id %}">Agregar Reseña</a>
+                <a class="btn btn-outline-dark btn-sm ms-2" href="{% url 'detalle_turno' turno.id %}">Ver Detalle</a>
+
+                <!-- botón eliminar -->
+                <a class="btn btn-outline-danger btn-sm ms-2" href="{% url 'eliminar_turno' turno.id %}"
+                    onclick="return confirm('¿Seguro deseas ELIMINAR este turno?')">
+                    Eliminar
+                </a>
+
+                <span class="badge bg-secondary ms-2">{{ turno.reseñas.count }} reseñas</span>
+            </div>
+
+        </li>
     {% empty %}
-      <div class="alert alert-info text-center">
-        No hay turnos cargados todavía.
-      </div>
+        <li class="list-group-item">No hay turnos cargados</li>
     {% endfor %}
-  </div>
-  
-<a href="{% url 'home' %}" class="btn btn-outline-secondary mt-3">Volver</a>
-
-  
+</ul>
+<a href="/" class="btn btn-outline-dark mt-3">Volver</a>
 {% endblock %}

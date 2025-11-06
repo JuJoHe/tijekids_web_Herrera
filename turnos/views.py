@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TurnoForm, ResenaForm
 from .models import Turno, Reseña
 from django.contrib.auth.decorators import login_required
@@ -52,3 +52,15 @@ def detalle_turno(request, turno_id):
     turno = Turno.objects.get(id=turno_id)
     resenas = turno.reseñas.all()
     return render(request, "turnos/detalle_turno.html", {"turno": turno, "resenas": resenas})
+
+def eliminar_turno(request, id):
+    turno = get_object_or_404(Turno, id=id)
+    turno.delete()
+    return redirect('ver_turnos')
+
+def eliminar_resena(request, resena_id):
+    resena = get_object_or_404(Reseña, id=resena_id)
+    resena.delete()
+    return redirect('ver_resenas')
+
+
